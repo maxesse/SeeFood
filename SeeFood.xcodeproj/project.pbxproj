@@ -12,6 +12,7 @@
 		56BC98D32045BE4D007DDEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BC98D12045BE4D007DDEE2 /* Main.storyboard */; };
 		56BC98D52045BE4D007DDEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56BC98D42045BE4D007DDEE2 /* Assets.xcassets */; };
 		56BC98D82045BE4D007DDEE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BC98D62045BE4D007DDEE2 /* LaunchScreen.storyboard */; };
+		56BC98E02045BEE7007DDEE2 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56BC98DF2045BEE6007DDEE2 /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		56BC98D42045BE4D007DDEE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56BC98D72045BE4D007DDEE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56BC98D92045BE4D007DDEE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56BC98DF2045BEE6007DDEE2 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				56BC98D42045BE4D007DDEE2 /* Assets.xcassets */,
 				56BC98D62045BE4D007DDEE2 /* LaunchScreen.storyboard */,
 				56BC98D92045BE4D007DDEE2 /* Info.plist */,
+				56BC98DF2045BEE6007DDEE2 /* Inceptionv3.mlmodel */,
 			);
 			path = SeeFood;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BC98D02045BE4D007DDEE2 /* ViewController.swift in Sources */,
+				56BC98E02045BEE7007DDEE2 /* Inceptionv3.mlmodel in Sources */,
 				56BC98CE2045BE4D007DDEE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +285,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsanna.SeeFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -296,7 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsanna.SeeFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
