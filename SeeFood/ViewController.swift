@@ -13,6 +13,7 @@ import Vision
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var guessLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
     
@@ -27,10 +28,44 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = userPickedImage
+            
+            guard let ciimage = CIImage(image: userPickedImage) else {
+                fatalError("Unable to convert the image to a CIImage")
+            }
+            detect(image: ciimage)
+            
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
         
+    }
+    
+    func detect(image: CIImage) {
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { fatalError("Error loading MLModel.")}
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            guard let results = request.results as? [VNClassificationObservation] else {
+                fatalError("Unable to gather results back from ML Model")
+            }
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("hotdog") {
+                    self.navigationItem.title = "Hotdog!"
+                } else {
+                    self.navigationItem.title = "Not Hotdog!"
+                }
+                self.guessLabel.numberOfLines = 0
+                self.guessLabel.text = "Item: \(firstResult.identifier)\nConfidence: \(round(firstResult.confidence * 1000) / 10)%"
+            }
+        }
+
+        let handler = VNImageRequestHandler(ciImage: image)
+        
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
+
     }
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
